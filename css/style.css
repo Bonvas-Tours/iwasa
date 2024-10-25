@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap");
 
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #0c0c0c;
@@ -158,8 +166,66 @@ a:focus {
 }
 
 
+.header_section {
+  background-color: #12065D; /* Set a background color */
+  padding: 10px 0; /* Add some padding */
+}
+
+.navbar {
+  padding: 0; 
+}
+
+.logo {
+  display: flex;
+  align-items: center; 
+}
+
+.logo img {
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 70px; /* Maximum size */
+  max-height: 80px; /* Maximum size */
+}
+
 #cultural {
-  font-size: 23px;
+  margin-left: 10px; /* Space between the logo and text */
+  margin-bottom: 80px;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+  font-size: 16px; /* Adjust link font size */
+}
+
+@media (max-width: 600px) {
+  #cultural {
+    font-size: 18px; /* Minimum font size for smaller screens */
+  }
+  .navbar-nav .nav-link {
+    font-size: 14px; /* Smaller link font size */
+  }
+}
+
+@media (min-width: 1200px) {
+  #cultural {
+    font-size: 30px; /* Maximum font size for larger screens */
+  }
+  .navbar-nav .nav-link {
+    font-size: 18px; /* Larger link font size */
+  }
+}
+
+/* Optional: Set a minimum and maximum size */
+@media (max-width: 600px) {
+  #cultural {
+    font-size: 20px; /* Minimum size for smaller screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  #cultural {
+    font-size: 25px; /* Maximum size for larger screens */
+  }
 }
 
 
@@ -312,17 +378,37 @@ a:focus {
 }
 
 .slider_section .detail-box h1 {
-  font-size: 3rem;
+  font-size: 2.5vw; /* Responsive font size */
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 15px;
   color: #ffffff;
 }
 
+
+
+  /* Styling the paragraph container */
 .slider_section .detail-box p {
-  color: #fefefe;
-  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.6;
+  padding: 20px;
+  color: #ffffff;
+  background-color: #;
+  border-radius: 8px;
+  border-left: 4px solid #00bbf0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 20px;
+  background: transparent;
 }
+
+/* Color for bolded text */
+.slider_section .detail-box p strong {
+  color: #00bbf0; /* Color for bolded text */
+}
+
+
+/* Hover effect */
 
 .slider_section .detail-box .btn-box {
   display: -webkit-box;
@@ -351,17 +437,15 @@ a:focus {
 
 
 .btn-box .btn1 img {
-  height: 100px;
-  width: 150px;
-  margin-top: -30px;
-  border-radius: 30px;
-  border: 2px solid white;
+  height: 60px;
+  width: 80px;
+  margin-top: -35px;
+  border-radius: 10px;
+  border: 2px solid #22223b;
+  margin-left: -80px;
 }
 
 
-.slider_section .detail-box .btn-box .btn1:hover {
-  background-color: #007fa4;
-}
 
 .slider_section .detail-box .btn-box .btn2 {
   display: inline-block;
@@ -537,14 +621,71 @@ a:focus {
 
 
 /* About section */
-#img-box{
-  width: 650px;
-  height: 400px;
+#img-box {
+  width: 100%; /* Make the image take up 100% of its container's width */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 650px; /* Max width ensures it doesn't get too big */
   border-color: #DFA423;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
-  margin-left: -120px;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid white;
+  display: block;
 }
+
+.img-box {
+  text-align: center;
+}
+
+/* Optional media query for extra small devices */
+@media (max-width: 600px) {
+  #img-box {
+    max-width: 100%; /* Adjust the max width for small devices */
+    margin-left: 0;
+  }
+}
+
+/* Initiative text */
+.initiative-text {
+  font-size: 5.5vw; /* Scales with viewport width */
+  font-weight: bold;
+  text-align: center;
+  color: #fefae0; /* Adjust based on your color scheme */
+  margin-top: 0.5em; /* Relative unit for consistent spacing */
+}
+
+/* For larger screens */
+@media (min-width: 1024px) {
+  .initiative-text {
+    font-size: 18px; /* Adjust the size for large desktop screens */
+  }
+}
+
+/* For medium screens like tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .initiative-text {
+    font-size: 16px; /* Medium size for tablets */
+  }
+}
+
+/* For smaller screens */
+@media (max-width: 767px) {
+  .initiative-text {
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+}
+
+/* For extra small screens like mobile phones */
+@media (max-width: 600px) {
+  .initiative-text {
+    font-size: 12px; /* Even smaller for extra small screens */
+    margin-top: 0.3em; /* Adjust spacing to be more compact */
+  }
+}
+
+
+
+
 
 
 .btn {
