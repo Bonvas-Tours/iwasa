@@ -393,7 +393,7 @@ a:focus {
   line-height: 1.6;
   padding: 20px;
   color: #ffffff;
-  background-color: #;
+  
   border-radius: 8px;
   border-left: 4px solid #00bbf0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -684,10 +684,6 @@ a:focus {
 }
 
 
-
-
-
-
 .btn {
   color: white;
   font-weight: bold;
@@ -698,9 +694,46 @@ a:focus {
 .btn :hover {
   color: #0a0f14;
   background-color: #00bbf0;
- 
-
 }
+
+
+
+
+.button {
+  align-self: center; 
+  margin-top: auto; 
+  border: 3px solid #00204A;
+  background-color: #00BBF0; 
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-left: 500px;
+}
+
+
+
+#book-now {
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* Hover effect */
+#book-now:hover {
+  background-color: #fff;
+  color: #00204A;
+  border-radius: 5px;
+}
+
+
+
+
 
 
 
