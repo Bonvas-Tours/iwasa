@@ -915,15 +915,6 @@
         to_email: 'iwasa@bonvastours.com',
       })
         .then(() => {
-          // Send confirmation email to the subscriber
-          return emailjs.send("service_bkoljia", "template_st73i5u", {
-            to_name: email,
-            from_email: 'iwasa@bonvastours.com',
-            to_email: email,
-          });
-
-        })
-        .then(() => {
           loadingIndicator.style.display = "none";
           alert("Thanks for subscribing. A confirmation email has been sent to you.");
           form.reset();

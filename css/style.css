@@ -700,22 +700,20 @@ a:focus {
 
 
 .button {
-  align-self: center; 
-  margin-top: auto; 
+  align-self: center;
+  margin: 20px auto;  /* Centers button horizontally and adds some space on top */
   border: 3px solid #00204A;
-  background-color: #00BBF0; 
+  background-color: #00BBF0;
   border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  margin-left: 500px;
+  max-width: 90%;  /* Ensures button does not exceed screen width on smaller devices */
 }
 
-
-
+/* Book Now Button */
 #book-now {
-  text-transform: uppercase;
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -723,13 +721,33 @@ a:focus {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-
 /* Hover effect */
 #book-now:hover {
   background-color: #fff;
   color: #00204A;
   border-radius: 5px;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #book-now {
+    font-size: 0.9em; 
+    padding: 8px 16px;  /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  #book-now {
+    font-size: 0.8em; 
+    padding: 6px 12px;  
+  }
+}
+
+
+
+
+
+
 
 
 
