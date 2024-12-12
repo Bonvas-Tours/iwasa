@@ -50,7 +50,7 @@
                 <nav class="navbar navbar-expand-lg custom_nav-container">
                     <a class="navbar-brand" href="index.html">
                         <div class="logo">
-                            <img src="/img/IWAS A .png" alt="IWASA Logo">
+                            <img src="img/iwasa.png" alt="IWASA Logo">
                         </div>
                         <div class="font-weight-bold font-awesome" id="font">
                             CCCII
@@ -259,80 +259,78 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <!-- End Google Map -->
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-        
-        <script>
-          // Initialize EmailJS with your user ID
-          (function() {
-            emailjs.init("N70uxITfvPT5Rxr3R");
-          })();
-        
-          function handleBooking(event) {
-            event.preventDefault();
-            document.getElementById("loadingIndicator").style.display = "block";
-        
-            const templateParams = {
-            from_name: document.getElementById("fullName").value,
-             to_name: 'IWASA',
-             from_phone: document.getElementById("phone").value,
-             from_email: document.getElementById("email").value,
-             to_email: 'iwasa@bonvastours.com',
-             message: `Package Selected:  ${document.getElementById("packageSelection").value} `
-            };
 
-        
-            emailjs.send("service_bkoljia", "template_zg5xf0k", templateParams)
-              .then((response) => {
-                alert("Your booking has been submitted successfully!");
-                document.getElementById("loadingIndicator").style.display = "none";
-                document.getElementById("contactForm").reset();
-              })
-              .catch((error) => {
-                alert("Failed to send booking. Please try again later.");
-                console.error("Error:", error);
-                document.getElementById("loadingIndicator").style.display = "none";
-              });
-          }
+        <script>
+            // Initialize EmailJS with your user ID
+            (function () {
+                emailjs.init("N70uxITfvPT5Rxr3R");
+            })();
+
+            function handleBooking(event) {
+                event.preventDefault();
+                document.getElementById("loadingIndicator").style.display = "block";
+
+                const templateParams = {
+                    from_name: document.getElementById("fullName").value,
+                    to_name: 'IWASA',
+                    from_phone: document.getElementById("phone").value,
+                    from_email: document.getElementById("email").value,
+                    to_email: 'iwasa@bonvastours.com',
+                    message: `Package Selected: ${document.getElementById("packageSelection").value}`
+                };
+
+                emailjs.send("service_bkoljia", "template_zg5xf0k", templateParams)
+                    .then((response) => {
+                        alert("Your booking has been submitted successfully!");
+                        document.getElementById("loadingIndicator").style.display = "none";
+                        document.getElementById("contactForm").reset();
+                    })
+                    .catch((error) => {
+                        alert("Failed to send booking. Please try again later.");
+                        console.error("Error details:", error);
+                        document.getElementById("loadingIndicator").style.display = "none";
+                    });
+            }
         </script>
-        
-        
+
         <script>
             // Initialize EmailJS
-        
+
             (function () {
-              emailjs.init("N70uxITfvPT5Rxr3R"); 
+                emailjs.init("N70uxITfvPT5Rxr3R");
             })();
-        
+
             function handleSubmit(event) {
-              event.preventDefault();
-              const form = event.target;
-              const loadingIndicator = document.getElementById("sLoadingIndicator");
-              const submitButton = document.getElementById("submitButton");
-        
-              loadingIndicator.style.display = "block";
-              submitButton.disabled = true;
-        
-              const email = form.email.value;
-        
-              // Send email to the IWASA team
-              emailjs.send("service_bkoljia", "template_msxg7mm", {
-                from_name: email,
-                to_name: 'IWASA Team',
-                from_email: email,
-                to_email: 'iwasa@bonvastours.com',
-              })
-                .then(() => {
-                  loadingIndicator.style.display = "none";
-                  alert("Thanks for subscribing. A confirmation email has been sent to you.");
-                  form.reset();
+                event.preventDefault();
+                const form = event.target;
+                const loadingIndicator = document.getElementById("sLoadingIndicator");
+                const submitButton = document.getElementById("submitButton");
+
+                loadingIndicator.style.display = "block";
+                submitButton.disabled = true;
+
+                const email = form.email.value;
+
+                // Send email to the IWASA team
+                emailjs.send("service_bkoljia", "template_msxg7mm", {
+                    from_name: email,
+                    to_name: 'IWASA Team',
+                    from_email: email,
+                    to_email: 'iwasa@bonvastours.com',
                 })
-                .catch((error) => {
-                  loadingIndicator.style.display = "none";
-                  console.error(error);
-                  alert("Oops! Something went wrong. Please try again.");
-                })
-                .finally(() => {
-                  submitButton.disabled = false;
-                });
+                    .then(() => {
+                        loadingIndicator.style.display = "none";
+                        alert("Thanks for subscribing.");
+                        form.reset();
+                    })
+                    .catch((error) => {
+                        loadingIndicator.style.display = "none";
+                        console.error(error);
+                        alert("Oops! Something went wrong. Please try again.");
+                    })
+                    .finally(() => {
+                        submitButton.disabled = false;
+                    });
             }
         </script>
 </body>
