@@ -2,12 +2,12 @@
 
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
-      // Remove the 'active' class from all links
+      // Remove the 'active' class from all links.
       navLinks.forEach((navLink) => {
         navLink.classList.remove("active");
       });
 
-      // Add the 'active' class to the clicked link
+      // Add the 'active' class to the clicked link.
       this.classList.add("active");
     });
   });
