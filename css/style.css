@@ -1,12 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@300;400;600;700&display=swap");
 
 
-
 html {
   scroll-behavior: smooth;
 }
-
-
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -14,8 +11,6 @@ body {
   background-color: #ffffff;
   overflow-x: hidden;
 }
-
-
 
 body {
   background-image: url(/img/body_bg.jpg);
@@ -26,12 +21,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1; /* Ensure it's behind the content */
-  background-attachment:fixed;
+  z-index: -1;
+  /* Ensure it's behind the content */
+  background-attachment: fixed;
 }
-
-
-
 
 .layout_padding {
   padding: 90px 0;
@@ -167,64 +160,84 @@ a:focus {
 
 
 .header_section {
-  background-color: #12065D; /* Set a background color */
-  padding: 10px 0; /* Add some padding */
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #12065D;
+  /* Set a background color */
+  padding: 10px 0;
+  /* Add some padding */
 }
 
 .navbar {
-  padding: 0; 
+  padding: 0;
 }
 
 .logo {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .logo img {
-  width: 100%; /* Make the image responsive */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 70px; /* Maximum size */
-  max-height: 80px; /* Maximum size */
+  width: 100%;
+  /* Make the image responsive */
+  height: auto;
+  /* Maintain aspect ratio */
+  max-width: 70px;
+  /* Maximum size */
+  max-height: 80px;
+  /* Maximum size */
 }
 
-#cultural {
-  margin-left: 10px; /* Space between the logo and text */
-  margin-bottom: 80px;
-}
 
 /* Navbar links */
 .navbar-nav .nav-link {
-  font-size: 16px; /* Adjust link font size */
+  font-size: 16px;
+  /* Adjust link font size */
+}
+
+.navbar-nav .nav-link.active {
+  color: #00bbf0 !important;
+  /* Add an underline effect */
 }
 
 @media (max-width: 600px) {
   #cultural {
-    font-size: 18px; /* Minimum font size for smaller screens */
+    font-size: 18px;
+    /* Minimum font size for smaller screens */
   }
+
   .navbar-nav .nav-link {
-    font-size: 14px; /* Smaller link font size */
+    font-size: 14px;
+    /* Smaller link font size */
   }
 }
 
 @media (min-width: 1200px) {
   #cultural {
-    font-size: 30px; /* Maximum font size for larger screens */
+    font-size: 30px;
+    /* Maximum font size for larger screens */
   }
+
   .navbar-nav .nav-link {
-    font-size: 18px; /* Larger link font size */
+    font-size: 18px;
+    /* Larger link font size */
   }
 }
 
 /* Optional: Set a minimum and maximum size */
 @media (max-width: 600px) {
   #cultural {
-    font-size: 20px; /* Minimum size for smaller screens */
+    font-size: 20px;
+    /* Minimum size for smaller screens */
   }
 }
 
 @media (min-width: 1200px) {
   #cultural {
-    font-size: 25px; /* Maximum size for larger screens */
+    font-size: 25px;
+    /* Maximum size for larger screens */
   }
 }
 
@@ -359,13 +372,17 @@ a:focus {
   -ms-flex-align: center;
   align-items: center;
   position: relative;
-  padding: 45px 0 145px 0;
+  padding: 45px 0px 145px 0;
+  margin-top: 120px;
+
+
 }
 
 .slider_section .row {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  position: relative;
 }
 
 .slider_section #customCarousel1 {
@@ -377,26 +394,16 @@ a:focus {
   color: #b9bdc2;
 }
 
-.slider_section .detail-box h1 {
-  font-size: 2.5vw; /* Responsive font size */
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  color: #ffffff;
-}
 
-
-
-  /* Styling the paragraph container */
+/* Styling the paragraph container */
 .slider_section .detail-box p {
   font-size: 1rem;
   line-height: 1.6;
   padding: 20px;
   color: #ffffff;
-  
+
   border-radius: 8px;
   border-left: 4px solid #00bbf0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin-bottom: 20px;
   background: transparent;
@@ -404,18 +411,25 @@ a:focus {
 
 /* Color for bolded text */
 .slider_section .detail-box p strong {
-  color: #00bbf0; /* Color for bolded text */
+  color: #00bbf0;
+  /* Color for bolded text */
 }
 
-
 /* Hover effect */
-
 .slider_section .detail-box .btn-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin: 0 -5px;
   margin-top: 25px;
+  position: absolute;
+  bottom: 50%;
+  right: -100%;
+  z-index: 2;
+}
+
+.slider_section .detail-box .btn-box img{
+width: 165px;
 }
 
 .slider_section .detail-box .btn-box a {
@@ -424,43 +438,8 @@ a:focus {
   width: 165px;
 }
 
-.slider_section .detail-box .btn-box .btn1 {
-  display: inline-block;
-  padding: 10px 15px;
-  /* background-color: #00bbf0; */
-  color: #ffffff;
-  border-radius: 0;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: none;
-}
 
 
-.btn-box .btn1 img {
-  height: 60px;
-  width: 80px;
-  margin-top: -35px;
-  border-radius: 10px;
-  border: 2px solid #22223b;
-  margin-left: -80px;
-}
-
-
-
-.slider_section .detail-box .btn-box .btn2 {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 0;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  border: none;
-}
-
-.slider_section .detail-box .btn-box .btn2:hover {
-  background-color: black;
-}
 
 .slider_section .img-box {
   margin: 45px 0;
@@ -601,10 +580,12 @@ a:focus {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  align-items: center;
+  width: 100%;
   margin-top: 45px;
 }
 
-.service_section .btn-box a {
+.btn-box a {
   display: inline-block;
   padding: 10px 45px;
   background-color: #00bbf0;
@@ -615,16 +596,21 @@ a:focus {
   border: none;
 }
 
-.service_section .btn-box a:hover {
-  background-color: #007fa4;
+.btn-box a:hover {
+  color: #00204A;
+  background-color: #00bbf0 !important;
+  border-radius: none !important;
 }
 
 
 /* About section */
 #img-box {
-  width: 100%; /* Make the image take up 100% of its container's width */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 650px; /* Max width ensures it doesn't get too big */
+  width: 100%;
+  /* Make the image take up 100% of its container's width */
+  height: auto;
+  /* Maintain aspect ratio */
+  max-width: 650px;
+  /* Max width ensures it doesn't get too big */
   border-color: #DFA423;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
   margin-left: auto;
@@ -640,46 +626,64 @@ a:focus {
 /* Optional media query for extra small devices */
 @media (max-width: 600px) {
   #img-box {
-    max-width: 100%; /* Adjust the max width for small devices */
+    max-width: 100%;
+    /* Adjust the max width for small devices */
     margin-left: 0;
   }
 }
 
 /* Initiative text */
 .initiative-text {
-  font-size: 5.5vw; /* Scales with viewport width */
+  font-size: 5.5vw;
+  /* Scales with viewport width */
   font-weight: bold;
-  text-align: center;
-  color: #fefae0; /* Adjust based on your color scheme */
-  margin-top: 0.5em; /* Relative unit for consistent spacing */
+  color: #fefae0;
+
+  /* Relative unit for consistent spacing */
 }
 
 /* For larger screens */
 @media (min-width: 1024px) {
   .initiative-text {
-    font-size: 18px; /* Adjust the size for large desktop screens */
+    font-size: 18px;
+    /* Adjust the size for large desktop screens */
   }
 }
 
 /* For medium screens like tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
   .initiative-text {
-    font-size: 16px; /* Medium size for tablets */
+    font-size: 16px;
+    text-align: center;
+    /* Medium size for tablets */
   }
 }
 
 /* For smaller screens */
 @media (max-width: 767px) {
   .initiative-text {
-    font-size: 14px; /* Smaller font size for mobile */
+    font-size: 14px;
+    text-align: center;
+    padding-top: 20px;
+    /* Smaller font size for mobile */
   }
+    .slider_section .detail-box h1 {
+      font-size: 24px;
+      /* Responsive font size */
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
 }
 
 /* For extra small screens like mobile phones */
 @media (max-width: 600px) {
   .initiative-text {
-    font-size: 12px; /* Even smaller for extra small screens */
-    margin-top: 0.3em; /* Adjust spacing to be more compact */
+    font-size: 12px;
+    /* Even smaller for extra small screens */
+    margin-top: 0.3em;
+    /* Adjust spacing to be more compact */
   }
 }
 
@@ -701,15 +705,104 @@ a:focus {
 
 .button {
   align-self: center;
-  margin: 20px auto;  /* Centers button horizontally and adds some space on top */
+  margin: 20px auto;
+  /* Centers button horizontally and adds some space on top */
   border: 3px solid #00204A;
   background-color: #00BBF0;
-  border-radius: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  max-width: 90%;  /* Ensures button does not exceed screen width on smaller devices */
+  max-width: 90%;
+  /* Ensures button does not exceed screen width on smaller devices */
+}
+
+/* Why Choose Us Section */
+.why_section {
+  background-color: #ffffff;
+  /* Background color for the section */
+  padding: 90px 0;
+  /* Padding for the section */
+}
+
+.why_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* Align boxes to the start */
+  gap: 20px;
+  /* Gap between boxes */
+}
+
+.why_container .box {
+  flex: 1 1 calc(33.33% - 20px);
+  /* Each box takes 33.33% of the container width minus the gap */
+  min-width: 300px;
+  /* Minimum width for each box */
+  max-width: calc(33.33% - 20px);
+  /* Maximum width to prevent stretching */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border:2px solid #00204A;
+  padding: 20px;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why_container .box:hover {
+  transform: translateY(-10px);
+}
+
+.why_container .box .img-box {
+  margin-bottom: 20px;
+  /* Space below image */
+}
+
+.why_container .box .img-box img {
+  width: 80px;
+  /* Fixed width for icons */
+  height: auto;
+  /* Maintain aspect ratio */
+}
+
+.why_container .box .detail-box h5 {
+  font-weight: bold;
+  /* Bold heading */
+  margin-bottom: 10px;
+  /* Space below heading */
+}
+
+.why_container .box .detail-box p {
+  margin-bottom: 0;
+  /* Remove margin below paragraph */
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet View (2 boxes per row) */
+@media (max-width: 1024px) {
+  .why_container .box {
+    flex: 1 1 calc(50% - 20px);
+    /* Each box takes 50% of the container width minus the gap */
+    max-width: calc(50% - 20px);
+    /* Maximum width for 2 boxes per row */
+    min-width: 250px;
+    /* Adjust minimum width for tablets */
+  }
+}
+
+/* Mobile View (1 box per row) */
+@media (max-width: 768px) {
+  .why_container .box {
+    flex: 1 1 100%;
+    /* Each box takes 100% of the container width */
+    max-width: 100%;
+    /* Maximum width for 1 box per row */
+    min-width: 100%;
+    /* Full width on mobile */
+  }
 }
 
 /* Book Now Button */
@@ -731,15 +824,31 @@ a:focus {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   #book-now {
-    font-size: 0.9em; 
-    padding: 8px 16px;  /* Adjust padding for smaller screens */
+    font-size: 0.9em;
+    padding: 8px 16px;
+    /* Adjust padding for smaller screens */
   }
+  .slider_section{
+    margin-top: 170px;
+  }
+
+.slider_section .row {
+background-color: #002b64;
+}
+
+.slider_section .detail-box .btn-box {
+
+  bottom: -100%;
+  right: 0;
+
+}
+
 }
 
 @media (max-width: 480px) {
   #book-now {
-    font-size: 0.8em; 
-    padding: 6px 12px;  
+    font-size: 0.8em;
+    padding: 6px 12px;
   }
 }
 
@@ -753,7 +862,9 @@ a:focus {
 
 
 
-
+.more-text {
+  display: none;
+}
 
 .more-text h4 {
   color: #00bbf0;
@@ -766,8 +877,8 @@ a:focus {
 }
 
 .about_section {
-  background-color: #00204a;
-  color: #ffffff;
+  background-color: #fff;
+  color: #00204a;
 }
 
 .about_section .heading_container {
@@ -784,8 +895,9 @@ a:focus {
   max-width: 150%;
 }
 
-.about_section .detail-box h3 {
+.about_section .detail-box h3,.about_section .detail-box h4 {
   font-weight: bold;
+    color: #00204a;
 }
 
 .about_section .detail-box p {
@@ -884,6 +996,120 @@ a:focus {
 
 .why_section .btn-box a:hover {
   background-color: #007fa4;
+}
+
+/* FAQ Section */
+.faq {
+  background-color: #f8f8f9;
+  /* Light background for the section */
+  padding: 60px 20px;
+
+  /* Center-align the heading */
+}
+
+.faq h2 {
+  font-size: 2rem;
+  /* Large heading size */
+  font-weight: bold;
+  /* Bold heading */
+  color: #00204a;
+  /* Dark blue color for heading */
+  margin-bottom: 40px;
+  text-align: center;
+  /* Space below the heading */
+}
+
+.faq-item {
+  max-width: 800px;
+  /* Limit the width of the FAQ container */
+  margin: 0 auto;
+  /* Center the FAQ container */
+}
+
+.faq-question {
+  width: 100%;
+  /* Full width for the question button */
+  padding: 15px 20px;
+  /* Padding inside the button */
+  font-size: 1.1rem;
+  /* Font size for the question */
+  font-weight: 600;
+  /* Semi-bold font */
+  color: #00204a;
+  /* Dark blue color for text */
+  background-color: #f8f8f9;
+  /* White background for the button */
+  /* border: 1px solid #e0e0e0; */
+  /* Light border */
+  border-radius: 8px;
+  /* Rounded corners */
+  text-align: left;
+  /* Align text to the left */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  /* Smooth transitions */
+  margin-bottom: 10px;
+  /* Space between questions */
+}
+
+.faq-question:hover {
+  background-color: #f0f0f0;
+  /* Light gray background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow on hover */
+}
+
+.faq-question:focus {
+  outline: none;
+  /* Remove default focus outline */
+}
+
+.faq-answer {
+  max-height: 0;
+  /* Initially hide the answer */
+  overflow: hidden;
+  /* Hide overflow content */
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  /* Smooth expand/collapse */
+  background-color: #ffffff;
+  /* White background for the answer */
+  /* border: 1px solid #e0e0e0; */
+  /* Light border */
+  border-radius: 8px;
+  /* Rounded corners */
+  margin-bottom: 10px;
+  /* Space between questions */
+}
+
+.faq-answer.open {
+  max-height: 200px;
+  /* Expand height when open */
+  padding: 15px 20px;
+  /* Padding inside the answer */
+}
+
+.faq-answer ul {
+  list-style-type: none;
+  /* Remove bullet points */
+  padding: 0;
+  /* Remove default padding */
+  margin: 0;
+  /* Remove default margin */
+}
+
+.faq-answer ul li {
+  margin-bottom: 10px;
+  /* Space between list items */
+}
+
+.faq-answer ul li p {
+  font-size: 1rem;
+  /* Font size for the answer */
+  color: #555;
+  /* Dark gray color for text */
+  line-height: 1.6;
+  /* Line height for readability */
 }
 
 /*team section */
@@ -1004,7 +1230,6 @@ a:focus {
 
 .client_section .box .detail-box {
   background-color: #ffffff;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.15);
   padding: 75px 25px 25px 25px;
 }
 
@@ -1026,7 +1251,6 @@ a:focus {
   background-color: #ffffff;
   color: #000000;
   font-size: 24px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
 }
 
 .client_section .owl-carousel .owl-nav .owl-prev:hover,
@@ -1268,7 +1492,8 @@ a:focus {
   width: 100%;
   height: 170px;
   border: none;
-  margin-left: 0; /* Removed negative margin for better alignment */
+  margin-left: 0;
+  /* Removed negative margin for better alignment */
 }
 
 /* Responsive Design */
@@ -1282,7 +1507,8 @@ a:focus {
   }
 
   .map iframe {
-    height: 150px; /* Adjust map height for tablets */
+    height: 150px;
+    /* Adjust map height for tablets */
   }
 }
 
@@ -1293,14 +1519,140 @@ a:focus {
 
   .footer_section p {
     padding: 10px 0;
-    font-size: 14px; /* Reduce font size for smaller screens */
+    font-size: 14px;
+    /* Reduce font size for smaller screens */
   }
 
   .map iframe {
-    height: 120px; /* Further adjust map height for mobile */
+    height: 120px;
+    /* Further adjust map height for mobile */
   }
 }
 
+
+/* Learn and experience Ghana  */
+.learn_container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.learn_head {
+  margin-top: 130px;
+  background-color: #100553;
+  padding: 80px 10px;
+  color: white;
+}
+
+.learn_head p{
+ font-size: 20px;
+}
+
+
+a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.learn_head h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+
+/* Sections */
+section {
+  padding: 40px 0;
+}
+
+.highlights h2{
+margin-bottom: 40px;
+}
+.highlight-grid {
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    /* Align boxes to the start */
+    gap: 20px;
+    /* Gap between boxes */
+}
+
+.highlight-item {
+flex: 1 1 calc(33.33% - 20px);
+  /* Each box takes 33.33% of the container width minus the gap */
+  min-width: 300px;
+  /* Minimum width for each box */
+  max-width: calc(33.33% - 20px);
+  /* Maximum width to prevent stretching */
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-10px);
+}
+
+.highlight-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+}
+/* Cost Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+table th {
+  background: #3498db;
+  color: #fff;
+}
+
+/* Apply Section */
+.apply {
+  background: #f4f4f4;
+  text-align: center;
+ 
+  display: flex;
+  gap: 40px;
+  width: 90%;
+  margin: auto;
+  justify-content: center;
+}
+
+.apply ul{
+  list-style-type: none;
+}
+
+.btn {
+  display: inline-block;
+  background: #3498db;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 0 !important;
+}
+
+.btn:hover {
+  background: #2980b9;
+}
 
 
 /*# sourceMappingURL=style.css.map */

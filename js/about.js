@@ -7,6 +7,6 @@ function toggleMoreText() {
         moreBtn.textContent = "Less";
     } else {
         moreText.style.display = "none";
-        moreBtn.textContent = "More";
+        moreBtn.textContent = "Read More";
     }
 }

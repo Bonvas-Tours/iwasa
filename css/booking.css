@@ -139,9 +139,6 @@ body {
   
   #font {
     font-size: 40px;
-
-
-
   }
   .navbar-brand {
     display: flex;
@@ -185,6 +182,9 @@ body {
   
   /*end header section*/
  
+  #booking-form{
+    margin-top:200px
+  }
   /* client section */
   .client_container {
     display: flex;
@@ -248,19 +248,19 @@ body {
 
   /* contact section */
 .submit {
-  color: white;
-  background-color: #12065D;
-  border: 2px solid #00BBF0;
-  width: 120px;
-  font-size: 25px;
-  border-radius: 5px;
-  padding: 8px 12px; /* Adjust padding for better touch support on mobile */
+  display: inline-block;
+    padding: 10px 45px;
+    background-color: #00bbf0;
+    color: #ffffff;
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: none;
 }
 
 /* Hover effect */
 .submit:hover {
-  background: transparent;
-  border: 2px solid #00BBF0;
+
   color: #03071e;
 }
 
