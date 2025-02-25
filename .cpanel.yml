@@ -9,3 +9,4 @@ deployment:
     - /bin/cp -R js $DEPLOYPATH
     - /bin/cp booking.html $DEPLOYPATH
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp learn-experience-ghana.html $DEPLOYPATH
