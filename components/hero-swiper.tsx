@@ -210,7 +210,10 @@ export default function HeroSwiper() {
                                                 className="font-semibold text-lg px-8 py-4 h-auto"
                                                 asChild
                                             >
-                                                <Link href={slide.ctaLink}>
+                                                <Link
+                                                    // href={slide.ctaLink}
+                                                    href="/contact"
+                                                >
                                                     {slide.ctaText}
                                                     <ArrowRight className="ml-2 h-5 w-5" />
                                                 </Link>
@@ -221,7 +224,10 @@ export default function HeroSwiper() {
                                                 className="border-2 bg-transparent border-white text-white hover:bg-white hover:text-black font-semibold text-lg px-8 py-4 h-auto backdrop-blur-sm"
                                                 asChild
                                             >
-                                                <Link href={slide.secondaryCtaLink}>
+                                                <Link
+                                                    // href={slide.secondaryCtaLink}
+                                                    href=""
+                                                >
                                                     <Play className="mr-2 h-5 w-5" />
                                                     {slide.secondaryCtaText}
                                                 </Link>
