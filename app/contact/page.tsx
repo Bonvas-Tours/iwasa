@@ -318,77 +318,8 @@ export default function ContactPage() {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Quick Actions */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Quick Actions</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Button className="w-full justify-start" variant="outline">
-                  <Calendar className="mr-2 h-4 w-4" />
-                  Schedule Consultation
-                </Button>
-                <Button className="w-full justify-start" variant="outline">
-                  <BookOpen className="mr-2 h-4 w-4" />
-                  Download Brochure
-                </Button>
-                <Button className="w-full justify-start" variant="outline">
-                  <Briefcase className="mr-2 h-4 w-4" />
-                  View Programs
-                </Button>
-              </CardContent>
-            </Card>
           </div>
         </div>
-
-        {/* Departments */}
-        <section className="mt-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Our Departments</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Connect directly with the right team for specialized assistance.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {departments.map((dept, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardHeader>
-                  <CardTitle className="text-lg">{dept.name}</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2">
-                      <Mail className="h-4 w-4 text-gray-400" />
-                      <span className="text-blue-600">{dept.email}</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Phone className="h-4 w-4 text-gray-400" />
-                      <span>{dept.phone}</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <h4 className="font-medium text-sm mb-2">Specialties:</h4>
-                    <div className="space-y-1">
-                      {dept.specialties.map((specialty, idx) => (
-                        <div key={idx} className="text-xs text-gray-600 flex items-center gap-2">
-                          <div className="w-1 h-1 bg-blue-600 rounded-full" />
-                          {specialty}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Button size="sm" className="w-full">
-                    Contact Team
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
 
         {/* FAQ Section */}
         <section className="mt-16">
