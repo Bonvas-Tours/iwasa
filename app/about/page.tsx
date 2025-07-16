@@ -78,11 +78,10 @@ export default function AboutPage() {
         {
             year: "2025",
             title: "Multimedia Strategic Partnership",
-            description: "Forged a key alliance with Multimedia to enhance digital learning and global exchange programs.",
+            description: "Formed a key collaboration with Multimedia to organize debate programs for high schools, enhancing educational growth.",
         },
     ];
 
-   
 
     return (
         <div className="min-h-screen">
@@ -224,7 +223,7 @@ export default function AboutPage() {
                                         </Card>
                                     </div>
 
-                                    <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
+                                    <div className="absolute md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
                                         <div className="w-3 h-3 bg-white rounded-full"></div>
                                     </div>
                                 </div>
