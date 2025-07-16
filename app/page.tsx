@@ -43,7 +43,7 @@ export default function HomePage() {
 
   const stats = [
     { rawNumber: 2500, suffix: "+", number: "2,500+", label: "Success Stories" },
-    { rawNumber: 50, suffix: "+", number: "50+", label: "Countries" },
+    { rawNumber: 20, suffix: "+", number: "20+", label: "Countries" },
     { rawNumber: 98, suffix: "%", number: "98%", label: "Satisfaction Rate" },
     { rawNumber: 5, suffix: "+", number: "5+", label: "Years Experience" },
   ]
@@ -85,33 +85,39 @@ export default function HomePage() {
               cross-cultural competencies, and professional networks that last a lifetime.
             </p>
             <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <div className="text-center space-y-4">
+              <Card className="shadow-none hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
                   <Globe className="h-8 w-8 text-blue-600" />
                 </div>
                 <h3 className="text-xl font-semibold">Global Network</h3>
                 <p className="text-gray-600">
                   Access opportunities across 50+ countries with our extensive partner network.
-                </p>
-              </div>
-              <div className="text-center space-y-4">
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-none hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
                   <Users className="h-8 w-8 text-green-600" />
                 </div>
                 <h3 className="text-xl font-semibold">Personalized Support</h3>
                 <p className="text-gray-600">
                   Dedicated guidance from application to completion of your international journey.
-                </p>
-              </div>
-              <div className="text-center space-y-4">
+              </p>
+                </CardContent>
+              </Card>
+              <Card className="shadow-none hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto">
                   <Award className="h-8 w-8 text-yellow-600" />
                 </div>
                 <h3 className="text-xl font-semibold">Career Excellence</h3>
                 <p className="text-gray-600">
                   Programs designed to accelerate your professional growth and global competitiveness.
-                </p>
-              </div>
+                      </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>

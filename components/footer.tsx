@@ -28,7 +28,6 @@ export default function Footer() {
     { name: "Our Mission", href: "/about#mission" },
     { name: "Team", href: "/about#team" },
     { name: "Careers", href: "/careers" },
-    { name: "Press", href: "/press" },
   ]
 
   const support = [
@@ -36,7 +35,6 @@ export default function Footer() {
     { name: "Help Center", href: "/help" },
     { name: "Student Support", href: "/support" },
     { name: "Emergency Contact", href: "/emergency" },
-    { name: "Feedback", href: "/feedback" },
   ]
 
   const destinations = [
@@ -133,7 +131,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {programs.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link
+                    // href={item.href}
+                    href="/"
+                    className="text-gray-400 hover:text-white transition-colors text-sm">
                     {item.name}
                   </Link>
                 </li>
@@ -147,7 +148,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {resources.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link
+                    // href={item.href}
+                    href="/"
+                    className="text-gray-400 hover:text-white transition-colors text-sm">
                     {item.name}
                   </Link>
                 </li>
@@ -161,7 +165,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {company.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link
+                    // href={item.href}
+                    href="/"
+                    className="text-gray-400 hover:text-white transition-colors text-sm">
                     {item.name}
                   </Link>
                 </li>
@@ -175,7 +182,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {support.map((item) => (
                 <li key={item.name}>
-                  <Link href={item.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link
+                    // href={item.href}
+                    href="/"
+                    className="text-gray-400 hover:text-white transition-colors text-sm">
                     {item.name}
                   </Link>
                 </li>
@@ -212,13 +222,13 @@ export default function Footer() {
             </div>
 
             <div className="flex items-center gap-6 text-sm">
-              <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="/" className="text-gray-400 hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="" className="text-gray-400 hover:text-white transition-colors">
                 Terms of Service
               </Link>
-              <Link href="/cookies" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="/" className="text-gray-400 hover:text-white transition-colors">
                 Cookie Policy
               </Link>
             </div>

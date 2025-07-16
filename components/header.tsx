@@ -84,7 +84,7 @@ export default function Header() {
                       <NavigationMenuLink asChild>
                         <Link
                           // href="Program"
-                          href=""
+                          href="/"
                           className="relative flex h-full w-full select-none flex-col justify-end rounded-md overflow-hidden p-6 no-underline outline-none focus:shadow-md text-white"
                         >
                           {/* Background image */}
@@ -111,7 +111,7 @@ export default function Header() {
                       <NavigationMenuLink key={program.title} asChild>
                         <Link
                           // href={program.href}
-                          href=""
+                          href="/"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
                           <div className="flex items-center gap-2">
@@ -136,7 +136,7 @@ export default function Header() {
                       <NavigationMenuLink key={resource.title} asChild>
                         <Link
                           // href={resource.href}
-                          href=""
+                          href="/"
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
                           <div className="text-sm font-medium leading-none">{resource.title}</div>
@@ -175,7 +175,7 @@ export default function Header() {
             <Button size="sm" asChild>
               <Link
                 // href="/apply"
-                href=""
+                href="/"
               >
                 Apply Now
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -225,7 +225,7 @@ export default function Header() {
                         <Link
                           key={resource.title}
                           // href={resource.href}
-                          href=""
+                          href="/"
                           className="block p-2 rounded-md hover:bg-gray-100 transition-colors"
                           onClick={() => setIsOpen(false)}
                         >
@@ -238,7 +238,7 @@ export default function Header() {
 
                   <div className="space-y-2">
                     <Link
-                      href="/about"
+                      href="/"
                       className="block p-2 rounded-md hover:bg-gray-100 transition-colors font-medium text-sm"
                       onClick={() => setIsOpen(false)}
                     >
@@ -249,7 +249,7 @@ export default function Header() {
 
                 <div className="space-y-3 pt-6 border-t">
                   <Button className="w-full" asChild>
-                    <Link href="" onClick={() => setIsOpen(false)}>
+                    <Link href="/" onClick={() => setIsOpen(false)}>
                       Apply Now
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
