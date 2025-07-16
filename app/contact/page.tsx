@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
+import { Alert, AlertDescription } from "@/components/ui/alert"
 import {
   Mail,
   Phone,
@@ -22,7 +23,11 @@ import {
   Users,
   BookOpen,
   Briefcase,
+  CheckCircle,
+  AlertCircle,
+  Loader2,
 } from "lucide-react"
+import { sendContactEmail } from "./actions"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -35,10 +40,47 @@ export default function ContactPage() {
     preferredContact: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitResult, setSubmitResult] = useState<{
+    success: boolean
+    message?: string
+    error?: string
+  } | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
-    console.log("Contact form submitted:", formData)
+    setIsSubmitting(true)
+    setSubmitResult(null)
+
+    try {
+      const formDataObj = new FormData()
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataObj.append(key, value)
+      })
+
+      const result = await sendContactEmail(formDataObj)
+      setSubmitResult(result)
+
+      if (result.success) {
+        // Reset form on success
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          inquiry: "",
+          message: "",
+          preferredContact: "",
+        })
+      }
+    } catch (error) {
+      setSubmitResult({
+        success: false,
+        error: "An unexpected error occurred. Please try again.",
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const updateFormData = (field: string, value: string) => {
@@ -67,40 +109,7 @@ export default function ContactPage() {
       description: "Schedule an appointment",
       action: "Get Directions",
     },
-    {
-      icon: MessageCircle,
-      title: "Live Chat",
-      details: "Available 24/7",
-      description: "Instant support for urgent queries",
-      action: "Start Chat",
-    },
-  ]
 
-  const departments = [
-    {
-      name: "Admissions Team",
-      email: "admissions@iwasabroad.com",
-      phone: "+1 (555) 123-4567",
-      specialties: ["Program Applications", "Eligibility Requirements", "Application Process"],
-    },
-    {
-      name: "Student Support",
-      email: "support@iwasabroad.com",
-      phone: "+1 (555) 123-4568",
-      specialties: ["Visa Assistance", "Housing Support", "Emergency Help"],
-    },
-    {
-      name: "Career Services",
-      email: "careers@iwasabroad.com",
-      phone: "+1 (555) 123-4569",
-      specialties: ["Job Placement", "Career Counseling", "Alumni Network"],
-    },
-    {
-      name: "Finance Team",
-      email: "finance@iwasabroad.com",
-      phone: "+1 (555) 123-4570",
-      specialties: ["Payment Plans", "Scholarships", "Financial Aid"],
-    },
   ]
 
   const faqs = [
@@ -174,6 +183,7 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={(e) => updateFormData("name", e.target.value)}
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div className="space-y-2">
@@ -184,6 +194,7 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={(e) => updateFormData("email", e.target.value)}
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -196,6 +207,7 @@ export default function ContactPage() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => updateFormData("phone", e.target.value)}
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div className="space-y-2">
@@ -203,6 +215,7 @@ export default function ContactPage() {
                       <Select
                         value={formData.preferredContact}
                         onValueChange={(value) => updateFormData("preferredContact", value)}
+                        disabled={isSubmitting}
                       >
                         <SelectTrigger>
                           <SelectValue placeholder="Select preference" />
@@ -219,7 +232,11 @@ export default function ContactPage() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="inquiry">Inquiry Type *</Label>
-                      <Select value={formData.inquiry} onValueChange={(value) => updateFormData("inquiry", value)}>
+                      <Select
+                        value={formData.inquiry}
+                        onValueChange={(value) => updateFormData("inquiry", value)}
+                        disabled={isSubmitting}
+                      >
                         <SelectTrigger>
                           <SelectValue placeholder="Select inquiry type" />
                         </SelectTrigger>
@@ -242,6 +259,7 @@ export default function ContactPage() {
                         onChange={(e) => updateFormData("subject", e.target.value)}
                         placeholder="Brief subject line"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -255,14 +273,40 @@ export default function ContactPage() {
                       placeholder="Please provide details about your inquiry..."
                       rows={6}
                       required
+                      disabled={isSubmitting}
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
-                    <Send className="mr-2 h-4 w-4" />
-                    Send Message
+                  <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Sending Message...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-4 w-4" />
+                        Send Message
+                      </>
+                    )}
                   </Button>
                 </form>
+                {/* Success/Error Messages */}
+                {submitResult && (
+                  <Alert
+                    className={`mt-6 ${submitResult.success ? "border-green-200 bg-green-50" : "border-red-200 bg-red-50"}`}
+                  >
+                    {submitResult.success ? (
+                      <CheckCircle className="h-4 w-4 text-green-600" />
+                    ) : (
+                      <AlertCircle className="h-4 w-4 text-red-600" />
+                    )}
+                    <AlertDescription className={submitResult.success ? "text-green-800" : "text-red-800"}>
+                      {submitResult.success ? submitResult.message : submitResult.error}
+                    </AlertDescription>
+                  </Alert>
+                )}
+
               </CardContent>
             </Card>
           </div>
@@ -303,14 +347,10 @@ export default function ContactPage() {
               <CardContent className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span>Monday - Friday</span>
-                  <span className="font-medium">9:00 AM - 6:00 PM EST</span>
+                  <span className="font-medium">8:30 AM - 5:00 PM GMT</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span className="font-medium">10:00 AM - 4:00 PM EST</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Sunday</span>
+                  <span>Saturday - Sunday</span>
                   <span className="font-medium">Closed</span>
                 </div>
                 <div className="pt-2 border-t">
@@ -318,6 +358,7 @@ export default function ContactPage() {
                 </div>
               </CardContent>
             </Card>
+
           </div>
         </div>
 
@@ -343,11 +384,7 @@ export default function ContactPage() {
             ))}
           </div>
 
-          <div className="text-center mt-8">
-            <Button variant="outline" size="lg">
-              View All FAQs
-            </Button>
-          </div>
+         
         </section>
       </div>
     </div>
