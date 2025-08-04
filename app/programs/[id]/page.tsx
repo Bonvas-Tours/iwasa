@@ -137,7 +137,7 @@ const programData = {
     type: "Study Package",
     rating: 4.6,
     reviews: 45,
-    image: "/program/engineering.jpg",
+    image: "/program/bronze.jpg",
     description:
       "Essential support for UK university applications with professional guidance and assistance. Perfect for students seeking basic application support for their UK education journey.",
     longDescription:
@@ -230,7 +230,7 @@ const programData = {
     type: "Study Package",
     rating: 4.7,
     reviews: 62,
-    image: "/program/studies.jpg",
+    image: "/program/silver.jpg",
     description:
       "Comprehensive UK university application support with visa assistance and documentation help. Ideal for students who need additional support beyond basic applications.",
     longDescription:
@@ -327,7 +327,7 @@ const programData = {
     type: "Study Package",
     rating: 4.9,
     reviews: 78,
-    image: "/program/software.jpg",
+    image: "/program/gold.jpg",
     description:
       "Premium UK university application package with guaranteed admissions and comprehensive support. The ultimate package for students who want maximum support and guaranteed results.",
     longDescription:
