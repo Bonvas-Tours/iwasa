@@ -28,7 +28,7 @@ const programData = {
     type: "Internship",
     rating: 4.9,
     reviews: 127,
-    image: "/placeholder.svg?height=400&width=800",
+    image: "/program/studies.jpg",
     description:
       "Immerse yourself in Berlin's thriving tech ecosystem with this comprehensive software engineering internship. Work alongside experienced developers at innovative startups and established tech companies while building real-world applications that impact thousands of users.",
     longDescription:
@@ -60,22 +60,16 @@ const programData = {
       },
       {
         step: 2,
-        title: "Technical Assessment",
-        description: "Complete coding challenges and technical questions",
-        completed: false,
-      },
-      {
-        step: 3,
-        title: "Video Interview",
+        title: "Online or In-person Interview",
         description: "30-minute interview with our placement team",
         completed: false,
       },
-      { step: 4, title: "Company Matching", description: "We match you with suitable companies", completed: false },
-      { step: 5, title: "Final Interview", description: "Interview with your potential employer", completed: false },
-      { step: 6, title: "Visa & Travel", description: "Visa processing and travel arrangements", completed: false },
+      { step: 3, title: "Company Matching", description: "We match you with suitable companies", completed: false },
+      { step: 4, title: "Final Interview", description: "Interview with your potential employer", completed: false },
+      { step: 5, title: "Visa & Travel", description: "Visa processing and travel arrangements", completed: false },
     ],
-    deadline: "March 15, 2024",
-    startDate: "June 1, 2024",
+    deadline: "July 15, 2025",
+    startDate: "September 1, 2025",
     cost: "€2,500 (program fee)",
     included: [
       "Placement guarantee",
@@ -102,10 +96,120 @@ const programData = {
       },
     ],
   },
+  2: {
+    title: "Hospitality Internship",
+    location: "Madrid, Spain",
+    duration: "1-6 months",
+    type: "Internship",
+    rating: 4.8,
+    reviews: 84,
+    image: "/program/hospitality.jpg",
+    description:
+      "Experience Spain's vibrant hospitality industry with hands-on training in premium hotels, restaurants, and tourism companies. Immerse yourself in Spanish culture while developing professional skills in one of Europe's most dynamic hospitality markets.",
+    longDescription:
+      "This comprehensive hospitality internship program offers flexible duration options from 1 to 6 months, allowing you to tailor your experience to your academic and career goals. You'll work in various sectors including luxury hotels, boutique restaurants, event management companies, and tourism agencies across Madrid and other Spanish cities. The program combines practical work experience with cultural immersion and language learning opportunities.",
+    benefits: [
+      "Flexible duration (1-6 months)",
+      "Visa assistance available",
+      "Cultural immersion program",
+      "Spanish language training",
+      "Industry certification",
+      "Networking opportunities",
+      "Professional mentorship",
+      "Accommodation assistance",
+    ],
+    requirements: [
+      "Currently enrolled in higher education or graduated within the last two years",
+      "University-level degree (not technical or secondary education)",
+      "Educational institution must be officially recognized",
+      "Internship must be mandatory component of academic program",
+      "Official internship agreement required",
+      "Proof of financial means (€600/month minimum)",
+      "Clean criminal record from all countries of residence (past 5 years)",
+      "Medical insurance coverage",
+    ],
+    applicationProcess: [
+      {
+        step: 1,
+        title: "Eligibility Check",
+        description: "Verify academic and legal requirements",
+        completed: false,
+      },
+      {
+        step: 2,
+        title: "Online Application",
+        description: "Submit application with required documents",
+        completed: false,
+      },
+      {
+        step: 3,
+        title: "Document Review",
+        description: "Academic transcripts and internship agreement review",
+        completed: false,
+      },
+      {
+        step: 4,
+        title: "Company Matching",
+        description: "Match with suitable hospitality companies",
+        completed: false,
+      },
+      { step: 5, title: "Visa Processing", description: "Student visa application and processing", completed: false },
+      { step: 6, title: "Pre-Departure", description: "Orientation and travel arrangements", completed: false },
+    ],
+    deadline: "Rolling admissions",
+    startDate: "Flexible start dates",
+    cost: "€1,057 - €2,401 (depending on duration and support level)",
+    costBreakdown: [
+      {
+        category: "With Host Company Visa Assistance",
+        options: [
+          { duration: "1-3 months", price: "€1,057*" },
+          { duration: "4-6 months", price: "€1,596*" },
+        ],
+      },
+      {
+        category: "Without Host Company Visa Assistance",
+        options: [
+          { duration: "1-3 months", price: "€1,596*" },
+          { duration: "4-6 months", price: "€2,401*" },
+        ],
+      },
+    ],
+    additionalCosts: [
+      "Medical insurance: approximately €350+",
+      "Flight costs: varies by country of origin",
+      "Embassy fee: starting at €90",
+      "Financial proof: €600/month (€3,600 for 6 months upfront)",
+    ],
+    included: [
+      "Internship placement",
+      "Visa application guidance",
+      "Pre-departure orientation",
+      "Cultural integration support",
+      "Spanish language resources",
+      "24/7 emergency assistance",
+    ],
+    testimonials: [
+      {
+        name: "Isabella Rodriguez",
+        role: "Hotel Manager at NH Hotels",
+        image: "/placeholder.svg?height=60&width=60",
+        quote:
+          "My hospitality internship in Madrid was life-changing. I improved my Spanish, gained invaluable industry experience, and built a network that helped me secure my current management position. The cultural immersion was incredible!",
+      },
+      {
+        name: "Thomas Mueller",
+        role: "Restaurant Operations Manager",
+        image: "/placeholder.svg?height=60&width=60",
+        quote:
+          "The flexibility of the program duration was perfect for my academic schedule. I completed a 4-month internship that gave me hands-on experience in Spanish hospitality culture and excellent professional references.",
+      },
+    ],
+  },
 }
 
 export default function ProgramDetailPage({ params }: { params: { id: string } }) {
-  const program = programData[params.id as keyof typeof programData]
+  const program = programData[params.id as unknown as keyof typeof programData];
 
   if (!program) {
     return <div>Program not found</div>
@@ -339,29 +443,6 @@ export default function ProgramDetailPage({ params }: { params: { id: string } }
               </CardContent>
             </Card>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Quick Facts</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Globe className="h-4 w-4 text-blue-600" />
-                  <span className="text-sm">International experience</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Users className="h-4 w-4 text-green-600" />
-                  <span className="text-sm">Mentorship included</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Briefcase className="h-4 w-4 text-purple-600" />
-                  <span className="text-sm">Career advancement</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Award className="h-4 w-4 text-yellow-600" />
-                  <span className="text-sm">Certificate provided</span>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>

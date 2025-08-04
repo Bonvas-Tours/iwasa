@@ -6,6 +6,8 @@ import { ArrowRight, Globe, Users, Award, MapPin, Clock, Star } from "lucide-rea
 import HeroSwiper from "@/components/hero-swiper"
 import AnimatedCounter from "@/components/animation-counter"
 import ServicesSection from "@/components/services"
+import Image from "next/image"
+import Link from "next/link"
 
 export default function HomePage() {
   const featuredPrograms = [
@@ -16,28 +18,24 @@ export default function HomePage() {
       duration: "6 months",
       type: "Internship",
       rating: 4.9,
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/program/software.jpg",
       description: "Gain hands-on experience in cutting-edge software development with leading tech companies.",
     },
     {
       id: 2,
-      title: "International Business Studies",
-      location: "London, UK",
-      duration: "1 year",
-      type: "Study Abroad",
+      title: "Hospitality Internship",
+      location: "Madrid, Spain",
+      country: "spain",
+      duration: "1-6 months",
+      durationType: "flexible",
+      type: "internship",
       rating: 4.8,
-      image: "/placeholder.svg?height=200&width=300",
-      description: "Master global business strategies at world-renowned universities.",
-    },
-    {
-      id: 3,
-      title: "Healthcare Work Placement",
-      location: "Toronto, Canada",
-      duration: "12 months",
-      type: "Work Placement",
-      rating: 4.9,
-      image: "/placeholder.svg?height=200&width=300",
-      description: "Advance your healthcare career with international experience in top medical facilities.",
+      reviews: 84,
+      image: "/program/hospitality.jpg",
+      description:
+        "Experience Spain's vibrant hospitality industry with hands-on training in hotels, restaurants, and tourism.",
+      benefits: ["Flexible duration", "Visa assistance available", "Cultural immersion", "Industry certification"],
+      deadline: "Rolling admissions",
     },
   ]
 
@@ -127,7 +125,7 @@ export default function HomePage() {
       <ServicesSection />
 
       {/* Featured Programs */}
-      {/* <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">Featured Programs</h2>
@@ -170,10 +168,7 @@ export default function HomePage() {
                 <CardContent>
                   <CardDescription className="mb-4">{program.description}</CardDescription>
                   <Button className="w-full" asChild>
-                    <Link href={`/programs/${program.id}`}>
-                      Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
+                    <Link href={`/programs/${program.id}`}>View Details & Apply</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -188,7 +183,7 @@ export default function HomePage() {
             </Button>
           </div>
         </div>
-      </section> */}
+      </section> 
     </div>
   )
 }

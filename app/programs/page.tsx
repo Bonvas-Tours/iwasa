@@ -27,26 +27,28 @@ export default function ProgramsPage() {
       type: "internship",
       rating: 4.9,
       reviews: 127,
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/program/software.jpg",
       description: "Gain hands-on experience in cutting-edge software development with leading tech companies.",
       benefits: ["Paid internship", "Visa support", "Housing assistance", "Mentorship program"],
-      deadline: "March 15, 2024",
+      deadline: "March 15, 2025",
     },
     {
       id: 2,
-      title: "International Business Studies",
-      location: "London, UK",
-      country: "uk",
-      duration: "1 year",
-      durationType: "long",
-      type: "study",
+      title: "Hospitality Internship",
+      location: "Madrid, Spain",
+      country: "spain",
+      duration: "1-6 months",
+      durationType: "flexible",
+      type: "internship",
       rating: 4.8,
-      reviews: 89,
-      image: "/placeholder.svg?height=200&width=300",
-      description: "Master global business strategies at world-renowned universities.",
-      benefits: ["Scholarship opportunities", "Industry connections", "Career placement", "Cultural immersion"],
-      deadline: "April 30, 2024",
+      reviews: 84,
+      image: "/program/hospitality.jpg",
+      description:
+        "Experience Spain's vibrant hospitality industry with hands-on training in hotels, restaurants, and tourism.",
+      benefits: ["Flexible duration", "Visa assistance available", "Cultural immersion", "Industry certification"],
+      deadline: "Rolling admissions",
     },
+  
     {
       id: 3,
       title: "Healthcare Work Placement",
@@ -57,61 +59,13 @@ export default function ProgramsPage() {
       type: "work",
       rating: 4.9,
       reviews: 156,
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/program/healthcare.jpg",
       description: "Advance your healthcare career with international experience in top medical facilities.",
       benefits: ["Professional certification", "Competitive salary", "Healthcare benefits", "Immigration pathway"],
-      deadline: "February 28, 2024",
+      deadline: "February 28, 2025",
     },
-    {
-      id: 4,
-      title: "Digital Marketing Internship",
-      location: "Sydney, Australia",
-      country: "australia",
-      duration: "4 months",
-      durationType: "medium",
-      type: "internship",
-      rating: 4.7,
-      reviews: 93,
-      image: "/placeholder.svg?height=200&width=300",
-      description: "Learn cutting-edge digital marketing strategies with Australia's top agencies.",
-      benefits: ["Portfolio development", "Industry certification", "Networking events", "Travel allowance"],
-      deadline: "May 15, 2024",
-    },
-    {
-      id: 5,
-      title: "Engineering Research Program",
-      location: "Tokyo, Japan",
-      country: "japan",
-      duration: "8 months",
-      durationType: "medium",
-      type: "study",
-      rating: 4.8,
-      reviews: 74,
-      image: "/placeholder.svg?height=200&width=300",
-      description: "Participate in groundbreaking engineering research at leading Japanese institutions.",
-      benefits: ["Research stipend", "Language training", "Cultural program", "Publication opportunities"],
-      deadline: "January 31, 2024",
-    },
-    {
-      id: 6,
-      title: "Finance Work Experience",
-      location: "Singapore",
-      country: "singapore",
-      duration: "6 months",
-      durationType: "medium",
-      type: "work",
-      rating: 4.9,
-      reviews: 112,
-      image: "/placeholder.svg?height=200&width=300",
-      description: "Gain valuable experience in Asia's financial hub with top investment firms.",
-      benefits: [
-        "Competitive compensation",
-        "Professional development",
-        "Networking opportunities",
-        "Career advancement",
-      ],
-      deadline: "March 30, 2024",
-    },
+  
+   
   ]
 
   const filteredPrograms = programs.filter((program) => {
@@ -200,10 +154,7 @@ export default function ProgramsPage() {
             <p className="text-gray-600">
               Showing {filteredPrograms.length} of {programs.length} programs
             </p>
-            <Button variant="outline" size="sm">
-              <Filter className="h-4 w-4 mr-2" />
-              More Filters
-            </Button>
+          
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -354,7 +354,7 @@ export default function ContactPage() {
                   <span className="font-medium">Closed</span>
                 </div>
                 <div className="pt-2 border-t">
-                  <p className="text-xs text-gray-600">Emergency support available 24/7 for current participants</p>
+                  <p className="text-xs text-gray-600">Emergency support available 24/7 for premium participants</p>
                 </div>
               </CardContent>
             </Card>

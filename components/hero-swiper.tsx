@@ -112,7 +112,7 @@ export default function HeroSwiper() {
                     },
                 }}
                 autoplay={{
-                    delay: 70000,
+                    delay: 10000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 }}

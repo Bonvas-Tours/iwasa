@@ -77,8 +77,8 @@ export default function AboutPage() {
         },
         {
             year: "2025",
-            title: "Multimedia Strategic Partnership",
-            description: "Formed a key collaboration with Multimedia to organize debate programs for high schools, enhancing educational growth.",
+            title: "Strategic Partnership",
+            description: "Established a strategic partnership with leading global firms, including major multimedia and international corporations.",
         },
     ];
 

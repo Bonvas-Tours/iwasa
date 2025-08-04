@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Globe, Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, ArrowRight } from "lucide-react"
+import { Globe, Mail, Phone, MapPin, Facebook,  Instagram, Linkedin,  ArrowRight } from "lucide-react"
 import Image from "next/image"
 
 export default function Footer() {
@@ -46,7 +46,44 @@ export default function Footer() {
     "Singapore",
     "Netherlands",
     "France",
-  ]
+    "Italy",
+    "Spain",
+    "United States",
+    "New Zealand",
+    "Switzerland",
+    "Thailand",
+    "Portugal",
+    "Greece",
+    "Norway",
+    "Sweden",
+    "Denmark",
+    "Austria",
+    "Belgium",
+    "Ireland",
+    "Iceland",
+    "Malaysia",
+    "Vietnam",
+    "Indonesia",
+    "Brazil",
+    "Argentina",
+    "Chile",
+    "Mexico",
+    "Costa Rica",
+    "Turkey",
+    "Qatar",
+    "Morocco",
+    "India",
+    "China",
+    "Hong Kong",
+    "Taiwan",
+    "Philippines",
+    "Czech Republic",
+    "Hungary",
+    "Poland",
+    "Croatia",
+    "Finland",
+    "Tanzania",
+  ];
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -110,16 +147,21 @@ export default function Footer() {
             </div>
             <div className="flex space-x-4">
               <Button size="sm" variant="outline" className="bg-transparent border-gray-700 hover:bg-gray-800">
-                <Facebook className="h-4 w-4" />
+                <Link href="https://facebook.com/bonvastours" target="_blank">
+                  <Facebook className="h-4 w-4" /> 
+                </Link>
               </Button>
               <Button size="sm" variant="outline" className="bg-transparent border-gray-700 hover:bg-gray-800">
-                <Twitter className="h-4 w-4" />
+                <Link href="https://instagram.com/bonvastours" target="_blank">
+                  <Instagram className="h-4 w-4" />
+                </Link>
+               
               </Button>
               <Button size="sm" variant="outline" className="bg-transparent border-gray-700 hover:bg-gray-800">
-                <Instagram className="h-4 w-4" />
-              </Button>
-              <Button size="sm" variant="outline" className="bg-transparent border-gray-700 hover:bg-gray-800">
-                <Linkedin className="h-4 w-4" />
+                <Link href="https://linkedin.com/company/bonvas-tours" target="_blank">
+                  <Linkedin className="h-4 w-4" />
+                </Link>
+               
               </Button>
 
             </div>

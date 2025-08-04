@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://iwasabroad.com",
+    url: "https://iwasa@bonvastours.com",
     siteName: "IWaS Abroad",
     title: "IWaS Abroad - Your Gateway to Global Opportunities",
     description: "Transform your career through international internships, work placements, and study abroad programs.",
@@ -61,11 +61,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-  },
-    generator: 'v0.dev'
+
 }
 
 export default function RootLayout({

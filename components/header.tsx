@@ -83,8 +83,7 @@ export default function Header() {
                     <div className="row-span-3">
                       <NavigationMenuLink asChild>
                         <Link
-                          // href="Program"
-                          href="/"
+                          href="/programs" 
                           className="relative flex h-full w-full select-none flex-col justify-end rounded-md overflow-hidden p-6 no-underline outline-none focus:shadow-md text-white"
                         >
                           {/* Background image */}
@@ -110,8 +109,7 @@ export default function Header() {
                     {programs.map((program) => (
                       <NavigationMenuLink key={program.title} asChild>
                         <Link
-                          // href={program.href}
-                          href="/"
+                          href={program.href}
                           className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                         >
                           <div className="flex items-center gap-2">
@@ -174,8 +172,7 @@ export default function Header() {
             </Button>
             <Button size="sm" asChild>
               <Link
-                // href="/apply"
-                href="/"
+                href="/apply"
               >
                 Apply Now
                 <ArrowRight className="ml-2 h-4 w-4" />

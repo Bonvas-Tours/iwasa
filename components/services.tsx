@@ -186,11 +186,10 @@ export default function ServicesSection() {
                         help you achieve them.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8">
-                            Schedule Free Consultation
-                        </Button>
-                        <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8">
-                            View All Services
+                        <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8" asChild>
+                            <Link href="/contact" >
+                                Schedule Free Consultation
+                            </Link>
                         </Button>
                     </div>
                 </div>
