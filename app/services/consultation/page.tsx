@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { GraduationCap, CheckCircle, Clock, Star, Calendar, Phone, Video } from "lucide-react"
+import { GraduationCap, Calendar, Phone, CheckCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { TestimonialCard } from "@/components/testimonial-card"
@@ -103,7 +102,7 @@ export default function ProgramConsultationPage() {
                     <div className="max-w-6xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
-                                What's Included in Your Consultation
+                                What&apos;s Included in Your Consultation
                             </h2>
                             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                                 Our comprehensive consultation process ensures you get personalized guidance tailored to your unique

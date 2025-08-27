@@ -200,7 +200,7 @@ export default function SuccessStoriesPage() {
                         ))}
                       </div>
                       <Quote className="h-8 w-8 text-blue-600 mb-4" />
-                      <blockquote className="text-lg text-gray-600 italic mb-6">"{stories[0].quote}"</blockquote>
+                      <blockquote className="text-lg text-gray-600 italic mb-6"><q>{stories[0].quote}</q></blockquote>
                     </div>
 
                     <div className="space-y-2">
@@ -288,7 +288,7 @@ export default function SuccessStoriesPage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <blockquote className="text-sm text-gray-600 italic mb-4 line-clamp-3">"{story.quote}"</blockquote>
+                  <blockquote className="text-sm text-gray-600 italic mb-4 line-clamp-3"><q>{story.quote}</q></blockquote>
                   <div className="space-y-3">
                     <div>
                       <h4 className="font-medium text-sm mb-2">Key Achievements:</h4>

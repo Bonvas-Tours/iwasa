@@ -52,7 +52,7 @@ export function TestimonialCard({ testimonial, serviceType = "consultation" }: T
           ))}
         </div>
       </div>
-      <p className="text-gray-700 italic">"{testimonial.text}"</p>
+      <p className="text-gray-700 italic"><q>{testimonial.text}</q></p>
     </Card>
   );
 }

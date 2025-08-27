@@ -4,15 +4,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import {
     Globe,
     Users,
-    Award,
     Target,
     Heart,
     Lightbulb,
-    Mail,
-    Linkedin,
     ArrowRight,
-    CheckCircle,
-    Calendar,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -97,7 +92,7 @@ export default function AboutPage() {
                             Transforming Lives Through Global Opportunities
                         </h1>
                         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                            For over 5 years, we've been the bridge between ambitious individuals, institutions and life-changing international
+                            For over 5 years, we&apos;ve been the bridge between ambitious individuals, institutions and life-changing international
                             experiences. Our mission is to make global education and career opportunities accessible to everyone.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">

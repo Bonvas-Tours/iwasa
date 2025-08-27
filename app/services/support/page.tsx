@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { HeadphonesIcon, CheckCircle, Clock, Star, Phone, MessageCircle } from "lucide-react"
+import { HeadphonesIcon, CheckCircle, Clock, Phone, MessageCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { TestimonialCard } from "@/components/testimonial-card"
@@ -212,7 +212,7 @@ export default function SupportPage() {
                     <div className="max-w-3xl mx-auto">
                         <h2 className="text-3xl lg:text-4xl font-bold mb-6">Need Help Right Now?</h2>
                         <p className="text-xl text-red-100 mb-8">
-                            Our support team is standing by to assist you with any questions or challenges you're facing.
+                            Our support team is standing by to assist you with any questions or challenges you&apos;re facing.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Button size="lg" className="bg-white text-red-600 hover:bg-gray-100" asChild>
