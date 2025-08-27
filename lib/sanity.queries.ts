@@ -26,6 +26,12 @@ export const PROGRAM_DETAIL_FIELDS = `
   cost,
   paymentOptions,
   excluded,
+  testimonials[]{
+    name,
+    role,
+    quote,
+    "imageUrl": image.asset->url
+  },
 `
 
 export const allProgramsQuery = groq`*[_type == "program"] | order(title asc){${PROGRAM_CARD_FIELDS}}`

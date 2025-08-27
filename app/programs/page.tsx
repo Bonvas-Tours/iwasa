@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -8,79 +8,30 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge"
 import { Search, MapPin, Clock, Star, Filter } from "lucide-react"
 import Link from "next/link"
+import { PROGRAM_CARD_FIELDS } from "@/lib/sanity.queries"
 import Image from "next/image"
+import ProgramsGridSkeleton from "@/components/programs-grid-skeleton"
 
 export default function ProgramsPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCountry, setSelectedCountry] = useState("all")
   const [selectedType, setSelectedType] = useState("all")
   const [selectedDuration, setSelectedDuration] = useState("all")
+  const [programs, setPrograms] = useState<any[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
-  const programs = [
-    {
-      id: 1,
-      title: "Hospitality Internship",
-      location: "Madrid, Spain",
-      country: "spain",
-      duration: "1-6 months",
-      durationType: "flexible",
-      type: "internship",
-      rating: 4.8,
-      reviews: 84,
-      image: "/program/hospitality.jpg",
-      description:
-        "Experience Spain's vibrant hospitality industry with hands-on training in hotels, restaurants, and tourism.",
-      benefits: ["Flexible duration", "Visa assistance available", "Cultural immersion", "Industry certification"],
-      deadline: "Rolling admissions",
-    },
-  
-    {
-      id: 2,
-      title: "Schools Bronze Package",
-      location: "Worldwide",
-      country: "global",
-      duration: "3 months validity",
-      durationType: "package",
-      type: "study",
-      rating: 4.6,
-      reviews: 45,
-      image: "/program/bronze.jpg",
-      description: "Essential support for international university applications with professional guidance and assistance.",
-      benefits: ["2 applications", "Application support", "50+ countries", "Flight discount"],
-      deadline: "Rolling admissions",
-    },
-    {
-      id: 3,
-      title: "Schools Silver Package",
-      location: "Worldwide",
-      country: "global",
-      duration: "6 months validity",
-      durationType: "package",
-      type: "study",
-      rating: 4.7,
-      reviews: 62,
-      image: "/program/silver.jpg",
-      description: "Comprehensive international university application support with visa assistance and documentation help.",
-      benefits: ["3 applications", "Visa assistance", "Documentation support", "Refund policy"],
-      deadline: "Rolling admissions",
-    },
-    {
-      id: 4,
-      title: "Schools Gold Package",
-      location: "Worldwide",
-      country: "global",
-      duration: "12 months validity",
-      durationType: "package",
-      type: "study",
-      rating: 4.9,
-      reviews: 78,
-      image: "/program/gold.jpg",
-      description: "Premium international university application package with guaranteed admissions and comprehensive support.",
-      benefits: ["5 applications", "Guaranteed admissions", "Scholarship support", "Travel insurance"],
-      deadline: "Rolling admissions",
-    },
-   
-  ]
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const res = await fetch("/api/programs")
+        const data = await res.json()
+        setPrograms(data.programs || [])
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    load()
+  }, [])
 
   const filteredPrograms = programs.filter((program) => {
     const matchesSearch =
@@ -167,17 +118,20 @@ export default function ProgramsPage() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-8">
             <p className="text-gray-600">
-              Showing {filteredPrograms.length} of {programs.length} programs
+              {isLoading ? "Loading programs..." : `Showing ${filteredPrograms.length} of ${programs.length} programs`}
             </p>
           
           </div>
 
+          {isLoading ? (
+            <ProgramsGridSkeleton />
+          ) : (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPrograms.map((program) => (
-              <Card key={program.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+              <Card key={program._id} className="overflow-hidden hover:shadow-lg transition-shadow">
                 <div className="relative">
                   <Image
-                    src={program.image || "/placeholder.svg"}
+                    src={program.imageUrl || "/placeholder.svg"}
                     alt={program.title}
                     width={300}
                     height={200}
@@ -213,27 +167,30 @@ export default function ProgramsPage() {
                   <div className="space-y-3">
                     <div>
                       <h4 className="font-medium text-sm mb-2">Key Benefits:</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {program.benefits.slice(0, 2).map((benefit, index) => (
-                          <Badge key={index} variant="secondary" className="text-xs">
-                            {benefit}
-                          </Badge>
-                        ))}
-                        {program.benefits.length > 2 && (
-                          <Badge variant="secondary" className="text-xs">
-                            +{program.benefits.length - 2} more
-                          </Badge>
-                        )}
-                      </div>
+                      {Array.isArray(program.benefits) && (
+                        <div className="flex flex-wrap gap-1">
+                          {program.benefits.slice(0, 2).map((benefit: string, index: number) => (
+                            <Badge key={index} variant="secondary" className="text-xs">
+                              {benefit}
+                            </Badge>
+                          ))}
+                          {program.benefits.length > 2 && (
+                            <Badge variant="secondary" className="text-xs">
+                              +{program.benefits.length - 2} more
+                            </Badge>
+                          )}
+                        </div>
+                      )}
                     </div>
                     <Button className="w-full" asChild>
-                      <Link href={`/programs/${program.id}`}>View Details & Apply</Link>
+                      <Link href={`/programs/${program.slug}`}>View Details & Apply</Link>
                     </Button>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
+          )}
 
           {filteredPrograms.length === 0 && (
             <div className="text-center py-12">
