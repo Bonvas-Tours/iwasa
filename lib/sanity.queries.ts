@@ -36,6 +36,8 @@ export const PROGRAM_DETAIL_FIELDS = `
 
 export const allProgramsQuery = groq`*[_type == "program"] | order(title asc){${PROGRAM_CARD_FIELDS}}`
 
+export const featuredProgramsQuery = groq`*[_type == "program" && featured == true] | order(title asc) [0...4]{${PROGRAM_CARD_FIELDS}}`
+
 export const programBySlugQuery = groq`*[_type == "program" && slug.current == $slug][0]{${PROGRAM_DETAIL_FIELDS}}`
 
 export const homepageQuery = groq`*[_type == "homepage"][0]{

@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Play, Globe, Briefcase, GraduationCap, Users } from "lucide-react"
+import { ArrowRight,  Globe, Briefcase, GraduationCap, Users } from "lucide-react"
 import Link from "next/link"
 
 // Import Swiper styles
@@ -211,27 +211,13 @@ export default function HeroSwiper() {
                                                 asChild
                                             >
                                                 <Link
-                                                    // href={slide.ctaLink}
-                                                    href="/contact"
+                                                    href={slide.ctaLink}
                                                 >
                                                     {slide.ctaText}
                                                     <ArrowRight className="ml-2 h-5 w-5" />
                                                 </Link>
                                             </Button>
-                                            <Button
-                                                size="lg"
-                                                variant="outline"
-                                                className="border-2 bg-transparent border-white text-white hover:bg-white hover:text-black font-semibold text-lg px-8 py-4 h-auto backdrop-blur-sm"
-                                                asChild
-                                            >
-                                                <Link
-                                                    // href={slide.secondaryCtaLink}
-                                                    href=""
-                                                >
-                                                    <Play className="mr-2 h-5 w-5" />
-                                                    {slide.secondaryCtaText}
-                                                </Link>
-                                            </Button>
+                                           
                                         </div>
                                     </div>
                                 </div>

@@ -41,28 +41,28 @@ export default function Header() {
     },
   ]
 
-  const resources = [
-    {
-      title: "Success Stories",
-      description: "Read inspiring stories from our alumni",
-      href: "/success-stories",
-    },
-    // {
-    //   title: "Blog & Insights",
-    //   description: "Latest trends and tips for international careers",
-    //   href: "/blog",
-    // },
-    {
-      title: "Application Guide",
-      description: "Step-by-step guide to applying for programs",
-      href: "/guide",
-    },
-    {
-      title: "Visa Information",
-      description: "Comprehensive visa requirements and processes",
-      href: "/visa-info",
-    },
-  ]
+  // const resources = [
+  //   {
+  //     title: "Success Stories",
+  //     description: "Read inspiring stories from our alumni",
+  //     href: "/success-stories",
+  //   },
+  //   // {
+  //   //   title: "Blog & Insights",
+  //   //   description: "Latest trends and tips for international careers",
+  //   //   href: "/blog",
+  //   // },
+  //   {
+  //     title: "Application Guide",
+  //     description: "Step-by-step guide to applying for programs",
+  //     href: "/guide",
+  //   },
+  //   {
+  //     title: "Visa Information",
+  //     description: "Comprehensive visa requirements and processes",
+  //     href: "/visa-info",
+  //   },
+  // ]
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90">
@@ -126,7 +126,7 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
+              {/* <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-transparent hover:!bg-transparent hover:text-blue-700">Resources</NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
@@ -146,7 +146,7 @@ export default function Header() {
                     ))}
                   </div>
                 </NavigationMenuContent>
-              </NavigationMenuItem>
+              </NavigationMenuItem> */}
 
               <NavigationMenuItem>
                 <NavigationMenuLink className="bg-transparent hover:bg-transparent hover:text-blue-700"  asChild>
@@ -215,7 +215,7 @@ export default function Header() {
                     </div>
                   </div>
 
-                  <div>
+                  {/* <div>
                     <h3 className="font-semibold text-sm text-gray-900 mb-3">Resources</h3>
                     <div className="space-y-2">
                       {resources.map((resource) => (
@@ -231,7 +231,7 @@ export default function Header() {
                         </Link>
                       ))}
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="space-y-2">
                     <Link

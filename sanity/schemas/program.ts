@@ -54,6 +54,7 @@ export default defineType({
         ],
       }] 
     }),
+    defineField({ name: 'featured', type: 'boolean', initialValue: false }),
   ],
 })
 
