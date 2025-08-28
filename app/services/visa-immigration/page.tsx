@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Plane, CheckCircle, FileCheck } from "lucide-react"
+import { Plane, CheckCircle, Clock, Star, Calendar, FileCheck, Globe } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { TestimonialCard } from "@/components/testimonial-card"

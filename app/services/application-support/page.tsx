@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { FileText, CheckCircle, Edit} from 'lucide-react'
+import { FileText, CheckCircle, Clock, Users, Star, ArrowRight, Calendar, Download, Edit } from 'lucide-react'
 import Link from "next/link"
 import Image from "next/image"
 import { TestimonialCard } from "@/components/testimonial-card"
@@ -17,7 +18,27 @@ export default function ApplicationSupportPage() {
         "Application tracking and follow-up support"
     ]
 
-   
+    const packages = [
+        {
+            title: "Basic Support",
+            price: "$299",
+            description: "Essential application assistance for one program",
+            features: ["Application review", "Document formatting", "Basic essay feedback", "Email support"]
+        },
+        {
+            title: "Complete Package",
+            price: "$599",
+            description: "Comprehensive support for up to 3 applications",
+            features: ["Full application management", "Essay writing assistance", "Interview preparation", "Priority support"]
+        },
+        {
+            title: "Premium Service",
+            price: "$999",
+            description: "White-glove service with dedicated advisor",
+            features: ["Unlimited applications", "Personal advisor", "Rush processing", "Success guarantee"]
+        }
+    ]
+
     const testimonials = [
         {
             name: "Emma Thompson",

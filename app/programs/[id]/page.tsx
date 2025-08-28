@@ -18,29 +18,9 @@ import Image from "next/image"
 import { sanityClient } from "@/lib/sanity.client"
 import { programBySlugQuery } from "@/lib/sanity.queries"
 
-type ProgramDetail = {
-  title: string
-  type: string
-  location?: string
-  duration?: string
-  startDate?: string
-  rating?: number
-  reviews?: number
-  imageUrl?: string
-  description?: string
-  longDescription?: string
-  benefits?: string[]
-  requirements?: string[]
-  applicationProcess?: { step: number; title: string; description: string; completed: boolean }[]
-  deadline?: string
-  cost?: string
-  excluded?: string[]
-  testimonials?: { name: string; role: string; quote: string; imageUrl?: string }[]
-}
-
 
 export default async function ProgramDetailPage({ params }: { params: { id: string } }) {
-  const program: ProgramDetail | null = await sanityClient.fetch(programBySlugQuery, { slug: params.id });
+  const program = await sanityClient.fetch(programBySlugQuery, { slug: params.id });
 
   if (!program) {
     return <div>Program not found</div>
@@ -129,17 +109,17 @@ export default async function ProgramDetailPage({ params }: { params: { id: stri
                     </div>
                   </CardContent>
                 </Card>
-                {program.excluded && program.excluded.length > 0 && (
+                {(program as any).excluded && (program as any).excluded.length > 0 && (
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                      What&apos;s Excluded
+                      What's Excluded
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="grid md:grid-cols-2 gap-3">
-                      {program.excluded ? (
-                        program.excluded.map((item: string, index: number) => (
+                      {(program as any).excluded ? (
+                        (program as any).excluded.map((item: string, index: number) => (
                           <div key={index} className="flex items-center gap-2">
                             <CheckCircle className="h-4 w-4 text-red-600 flex-shrink-0" />
                             <span className="text-sm">{item}</span>
@@ -217,7 +197,7 @@ export default async function ProgramDetailPage({ params }: { params: { id: stri
                               <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                             ))}
                           </div>
-                          <p className="text-gray-600 italic mb-3"><q>{testimonial.quote}</q></p>
+                          <p className="text-gray-600 italic mb-3">"{testimonial.quote}"</p>
                           <div>
                             <p className="font-medium">{testimonial.name}</p>
                             <p className="text-sm text-gray-500">{testimonial.role}</p>

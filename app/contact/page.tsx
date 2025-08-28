@@ -17,8 +17,12 @@ import {
   MapPin,
   Clock,
   Send,
+  MessageCircle,
+  Calendar,
   Globe,
   Users,
+  BookOpen,
+  Briefcase,
   CheckCircle,
   AlertCircle,
   Loader2,
@@ -167,7 +171,7 @@ export default function ContactPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-2xl">Send Us a Message</CardTitle>
-                <CardDescription>Fill out the form below and we&apos;ll get back to you within 24 hours.</CardDescription>
+                <CardDescription>Fill out the form below and we'll get back to you within 24 hours.</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">

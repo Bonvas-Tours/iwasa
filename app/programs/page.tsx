@@ -6,41 +6,25 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
-import { Search, MapPin, Clock, Star } from "lucide-react"
+import { Search, MapPin, Clock, Star, Filter } from "lucide-react"
 import Link from "next/link"
+import { PROGRAM_CARD_FIELDS } from "@/lib/sanity.queries"
 import Image from "next/image"
 import ProgramsGridSkeleton from "@/components/programs-grid-skeleton"
-
-type ProgramCard = {
-  _id: string
-  title: string
-  slug: string
-  type: string
-  location: string
-  country?: string
-  duration: string
-  durationType?: string
-  rating?: number
-  reviews?: number
-  imageUrl?: string
-  description?: string
-  deadline?: string
-  benefits?: string[]
-}
 
 export default function ProgramsPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCountry, setSelectedCountry] = useState("all")
   const [selectedType, setSelectedType] = useState("all")
   const [selectedDuration, setSelectedDuration] = useState("all")
-  const [programs, setPrograms] = useState<ProgramCard[]>([])
+  const [programs, setPrograms] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const load = async () => {
       try {
         const res = await fetch("/api/programs")
-        const data: { programs?: ProgramCard[] } = await res.json()
+        const data = await res.json()
         setPrograms(data.programs || [])
       } finally {
         setIsLoading(false)
@@ -49,7 +33,7 @@ export default function ProgramsPage() {
     load()
   }, [])
 
-  const filteredPrograms = programs.filter((program: ProgramCard) => {
+  const filteredPrograms = programs.filter((program) => {
     const matchesSearch =
       program.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       program.location.toLowerCase().includes(searchTerm.toLowerCase())

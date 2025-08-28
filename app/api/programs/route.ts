@@ -6,7 +6,7 @@ export async function GET() {
   try {
     const programs = await sanityClient.fetch(allProgramsQuery)
     return NextResponse.json({ programs })
-  } catch {
+  } catch (err) {
     return NextResponse.json({ error: 'Failed to fetch programs' }, { status: 500 })
   }
 }
