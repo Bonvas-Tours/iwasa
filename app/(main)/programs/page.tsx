@@ -6,17 +6,34 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Badge } from "@/components/ui/badge"
-import { Search, MapPin, Clock, Star, Filter } from "lucide-react"
+import { Search, MapPin, Clock, Star } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import ProgramsGridSkeleton from "@/components/programs-grid-skeleton"
+
+interface Program {
+  _id: string
+  title: string
+  slug: string
+  type: string
+  location: string
+  country: string
+  duration: string
+  durationType: string
+  rating: number
+  reviews: number
+  imageUrl: string
+  description: string
+  benefits: string[]
+  deadline: string
+}
 
 export default function ProgramsPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCountry, setSelectedCountry] = useState("all")
   const [selectedType, setSelectedType] = useState("all")
   const [selectedDuration, setSelectedDuration] = useState("all")
-  const [programs, setPrograms] = useState<any[]>([])
+  const [programs, setPrograms] = useState<Program[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {

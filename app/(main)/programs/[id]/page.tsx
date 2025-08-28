@@ -18,9 +18,48 @@ import Image from "next/image"
 import { sanityClient } from "@/lib/sanity.client"
 import { programBySlugQuery } from "@/lib/sanity.queries"
 
+interface ProgramDetail {
+  _id: string
+  title: string
+  slug: string
+  type: string
+  location: string
+  country: string
+  duration: string
+  durationType: string
+  rating: number
+  reviews: number
+  imageUrl: string
+  description: string
+  longDescription: string
+  benefits: string[]
+  requirements: string[]
+  excluded: string[]
+  applicationProcess: {
+    step: number
+    title: string
+    description: string
+    completed: boolean
+  }[]
+  deadline: string
+  startDate: string
+  cost: string
+  paymentOptions: {
+    option: string
+    percentage: string
+    amount: string
+    description: string
+  }[]
+  testimonials: {
+    name: string
+    role: string
+    quote: string
+    imageUrl?: string
+  }[]
+}
 
 export default async function ProgramDetailPage({ params }: { params: { id: string } }) {
-  const program = await sanityClient.fetch(programBySlugQuery, { slug: params.id });
+  const program = await sanityClient.fetch<ProgramDetail>(programBySlugQuery, { slug: params.id });
 
   if (!program) {
     return <div>Program not found</div>
@@ -100,7 +139,7 @@ export default async function ProgramDetailPage({ params }: { params: { id: stri
                   </CardHeader>
                   <CardContent>
                     <div className="grid md:grid-cols-2 gap-3">
-                      {(program.benefits as string[]).map((benefit, index) => (
+                                             {program.benefits.map((benefit, index) => (
                         <div key={index} className="flex items-center gap-2">
                           <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0" />
                           <span className="text-sm">{benefit}</span>
@@ -109,17 +148,17 @@ export default async function ProgramDetailPage({ params }: { params: { id: stri
                     </div>
                   </CardContent>
                 </Card>
-                {(program as any).excluded && (program as any).excluded.length > 0 && (
+                                 {program.excluded && program.excluded.length > 0 && (
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
-                      What's Excluded
-                    </CardTitle>
+                                         <CardTitle className="flex items-center gap-2">
+                       What&apos;s Excluded
+                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {(program as any).excluded ? (
-                        (program as any).excluded.map((item: string, index: number) => (
+                                         <div className="grid md:grid-cols-2 gap-3">
+                       {program.excluded ? (
+                         program.excluded.map((item: string, index: number) => (
                           <div key={index} className="flex items-center gap-2">
                             <CheckCircle className="h-4 w-4 text-red-600 flex-shrink-0" />
                             <span className="text-sm">{item}</span>
@@ -140,7 +179,7 @@ export default async function ProgramDetailPage({ params }: { params: { id: stri
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-4">
-                      {(program.requirements as string[]).map((requirement, index) => (
+                                             {program.requirements.map((requirement, index) => (
                         <div key={index} className="flex items-start gap-3 p-3 bg-gray-50 rounded-lg">
                           <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
                           <span>{requirement}</span>
@@ -159,7 +198,7 @@ export default async function ProgramDetailPage({ params }: { params: { id: stri
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-6">
-                      {(program.applicationProcess as { step: number; title: string; description: string; completed: boolean }[]).map((step, index) => (
+                                             {program.applicationProcess.map((step, index) => (
                         <div key={index} className="flex items-start gap-4">
                           <div
                             className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
@@ -180,7 +219,7 @@ export default async function ProgramDetailPage({ params }: { params: { id: stri
               </TabsContent>
 
               <TabsContent value="testimonials" className="space-y-6">
-                {(program.testimonials as { name: string; role: string; quote: string; imageUrl?: string }[]).map((testimonial, index) => (
+                                 {program.testimonials.map((testimonial, index) => (
                   <Card key={index}>
                     <CardContent className="pt-6">
                       <div className="flex items-start gap-4">
@@ -197,7 +236,7 @@ export default async function ProgramDetailPage({ params }: { params: { id: stri
                               <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                             ))}
                           </div>
-                          <p className="text-gray-600 italic mb-3">"{testimonial.quote}"</p>
+                                                     <p className="text-gray-600 italic mb-3">&quot;{testimonial.quote}&quot;</p>
                           <div>
                             <p className="font-medium">{testimonial.name}</p>
                             <p className="text-sm text-gray-500">{testimonial.role}</p>

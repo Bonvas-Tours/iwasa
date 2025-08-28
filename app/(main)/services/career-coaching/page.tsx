@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Users, CheckCircle, Clock, Star, Calendar, Target, TrendingUp } from "lucide-react"
+import { Users, CheckCircle, Target } from "lucide-react"
 import Image from "next/image"
 import { TestimonialCard } from "@/components/testimonial-card"
 import Link from "next/link"

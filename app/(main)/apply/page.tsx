@@ -20,8 +20,9 @@ import {
   AlertCircle,
   Loader2,
 } from "lucide-react"
-import { submitApplication } from "./actions"
+
 import { countries, nationalities } from "@/lib/countries-data"
+import { submitApplication } from "./actions"
 
 export default function ApplicationPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -49,7 +50,7 @@ export default function ApplicationPage() {
           setHowDidYouHear("")
         }
       }
-    } catch (error) {
+    } catch {
       setSubmitResult({
         success: false,
         error: "An unexpected error occurred. Please try again.",
@@ -71,7 +72,7 @@ export default function ApplicationPage() {
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Apply for a Program</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Take the first step towards your international career journey. Fill out the application form below and we'll
+            Take the first step towards your international career journey. Fill out the application form below and we&apos;ll
             get back to you within 2-3 business days.
           </p>
         </div>
@@ -374,7 +375,7 @@ export default function ApplicationPage() {
                   )}
                 </Button>
                 <p className="text-sm text-gray-600 text-center mt-3">
-                  By submitting this application, you agree to our terms and conditions. We'll contact you within 2-3
+                  By submitting this application, you agree to our terms and conditions. We&apos;ll contact you within 2-3
                   business days.
                 </p>
               </div>

@@ -7,8 +7,25 @@ import Link from "next/link"
 import { sanityClient } from "@/lib/sanity.client"
 import { featuredProgramsQuery } from "@/lib/sanity.queries"
 
+interface Program {
+  _id: string
+  title: string
+  slug: string
+  type: string
+  location: string
+  country: string
+  duration: string
+  durationType: string
+  rating: number
+  reviews: number
+  imageUrl: string
+  description: string
+  benefits: string[]
+  deadline: string
+}
+
 export default async function FeaturedPrograms() {
-  const featuredPrograms = await sanityClient.fetch(featuredProgramsQuery)
+  const featuredPrograms = await sanityClient.fetch<Program[]>(featuredProgramsQuery)
 
   return (
     <section className="py-20 bg-gray-50">
@@ -20,7 +37,7 @@ export default async function FeaturedPrograms() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredPrograms.map((program: any) => (
+          {featuredPrograms.map((program: Program) => (
             <Card key={program._id} className="overflow-hidden hover:shadow-lg transition-shadow">
               <div className="relative">
                 <Image

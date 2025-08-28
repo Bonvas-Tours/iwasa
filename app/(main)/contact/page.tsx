@@ -17,15 +17,11 @@ import {
   MapPin,
   Clock,
   Send,
-  MessageCircle,
-  Calendar,
-  Globe,
   Users,
-  BookOpen,
-  Briefcase,
   CheckCircle,
   AlertCircle,
   Loader2,
+  Globe,
 } from "lucide-react"
 import { sendContactEmail } from "./actions"
 
@@ -73,7 +69,7 @@ export default function ContactPage() {
           preferredContact: "",
         })
       }
-    } catch (error) {
+    } catch {
       setSubmitResult({
         success: false,
         error: "An unexpected error occurred. Please try again.",
@@ -171,7 +167,7 @@ export default function ContactPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="text-2xl">Send Us a Message</CardTitle>
-                <CardDescription>Fill out the form below and we'll get back to you within 24 hours.</CardDescription>
+                <CardDescription>Fill out the form below and we&apos;ll get back to you within 24 hours.</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -367,7 +363,7 @@ export default function ContactPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Find quick answers to common questions. Can't find what you're looking for? Contact us directly.
+              Find quick answers to common questions. Can&apos;t find what you&apos;re looking for? Contact us directly.
             </p>
           </div>
 
