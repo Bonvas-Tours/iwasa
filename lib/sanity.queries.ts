@@ -13,13 +13,13 @@ export const PROGRAM_CARD_FIELDS = `
   reviews,
   "imageUrl": image.asset->url,
   description,
+  benefits,
   deadline,
 `
 
 export const PROGRAM_DETAIL_FIELDS = `
   ${PROGRAM_CARD_FIELDS}
   longDescription,
-  benefits,
   requirements,
   applicationProcess,
   startDate,

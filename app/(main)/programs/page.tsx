@@ -8,7 +8,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge"
 import { Search, MapPin, Clock, Star, Filter } from "lucide-react"
 import Link from "next/link"
-import { PROGRAM_CARD_FIELDS } from "@/lib/sanity.queries"
 import Image from "next/image"
 import ProgramsGridSkeleton from "@/components/programs-grid-skeleton"
 
@@ -32,6 +31,8 @@ export default function ProgramsPage() {
     }
     load()
   }, [])
+
+  console.log("Programs", programs)
 
   const filteredPrograms = programs.filter((program) => {
     const matchesSearch =

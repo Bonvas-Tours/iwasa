@@ -1,7 +1,7 @@
 import program from './program'
-import homepage from './homepage'
 
-const schemas = [program, homepage]
+
+const schemas = [program]
 
 export default schemas
 

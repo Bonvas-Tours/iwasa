@@ -131,7 +131,7 @@ export default function ContactPage() {
     {
       question: "Are scholarships available?",
       answer:
-        "We offer various scholarship opportunities based on academic merit, financial need, and program-specific criteria.",
+        "We explore various scholarship opportunities based on academic merit, financial need, and program-specific criteria.",
     },
   ]
 
